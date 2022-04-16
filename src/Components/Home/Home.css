@@ -1,0 +1,39 @@
+.banner-container {
+  background-image: url(../../images/banner/banner.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 700px;
+  margin-bottom: 50px;
+}
+
+.banner-title {
+  padding-top: 500px;
+}
+
+.banner-title h2 {
+  color: white;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+.banner-title p {
+  color: white;
+  text-align: center;
+}
+
+@media only screen and (max-width: 688px) {
+  .banner-container {
+    height: 300px;
+  }
+
+  .banner-title {
+    padding-top: 200px;
+  }
+
+  .banner-title h2 {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
