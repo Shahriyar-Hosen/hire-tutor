@@ -1,4 +1,5 @@
 import React from "react";
+import Services from "../Services/Services";
 import "./Home.css";
 
 const Home = () => {
@@ -10,7 +11,12 @@ const Home = () => {
           <p>Book one-on-one lessons with verified tutors in your area</p>
         </div>
       </div>
-      <h1>Home page</h1>
+      <div>
+        <h1 className="text-center fs-1 fw-bold mt-5 text-info">
+          Service Tuition Types
+        </h1>
+        <Services></Services>
+      </div>
     </div>
   );
 };
