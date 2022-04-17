@@ -4,10 +4,22 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import signup1 from "../../../images/Login/Signup.jpg";
 import signup2 from "../../../images/Login/sign-up.jpg";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../../Firebase.init/Firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const Signup = () => {
   const [agree, setAgree] = useState(false);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
   const handleSubmit = (event) => {
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    createUserWithEmailAndPassword(email, password);
+    console.log(name, email, password);
     event.preventDefault();
   };
   return (
@@ -36,24 +48,36 @@ const Signup = () => {
                   Please Sign Up
                 </h1>
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group className="mb-3 mt-3" controlId="formBasicName">
+                  <Form.Group
+                    className="mb-3 mt-3  fs-5"
+                    controlId="formBasicName"
+                  >
                     <Form.Control
                       type="text"
+                      name="name"
                       className="py-4"
                       placeholder="Enter your name"
                     />
                   </Form.Group>
-                  <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
+                  <Form.Group
+                    className="mb-3 mt-3  fs-5"
+                    controlId="formBasicEmail"
+                  >
                     <Form.Control
                       type="email"
+                      name="email"
                       className="py-4"
                       placeholder="Enter email"
                     />
                   </Form.Group>
 
-                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                  <Form.Group
+                    className="mb-3 fs-5"
+                    controlId="formBasicPassword"
+                  >
                     <Form.Control
                       type="password"
+                      name="password"
                       className="py-4"
                       placeholder="Password"
                     />
@@ -80,7 +104,6 @@ const Signup = () => {
                   Already have an account?
                   <Link
                     to="/login"
-                    //   onClick={handleNavigate}
                     className="text-primary text-decoration-none px-2"
                   >
                     Please Login
