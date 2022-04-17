@@ -2,12 +2,13 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../Loading/Loading";
 
 const Header = () => {
   const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
 
   if (loading) {
     <Loading />;
@@ -17,69 +18,71 @@ const Header = () => {
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="info" variant="dark">
       <Container>
         <Navbar.Brand>
-          <Link
-            to="/"
-            className="text-decoration-none text-warning fs-3 fw-bold pe-5"
+          <button
+            onClick={() => navigate("/")}
+            className="text-decoration-none text-warning fs-3 fw-bold pe-5 btn btn-link py-0 px-0"
           >
             HIRE TUTOR
-          </Link>
+          </button>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link
-                to="/home"
-                className="text-decoration-none text-light fw-bold"
+              <button
+                onClick={() => navigate("/home")}
+                className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
               >
                 Home
-              </Link>
+              </button>
             </Nav.Link>
             <Nav.Link>
-              <Link
-                to="/blogs"
-                className="text-decoration-none text-light fw-bold"
+              <button
+                onClick={() => navigate("/blogs")}
+                className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
               >
                 Blogs
-              </Link>
+              </button>
             </Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link>
-              <Link
-                to="/about"
-                className="text-decoration-none text-light fw-bold"
+              <button
+                onClick={() => navigate("/about")}
+                className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
               >
                 About
-              </Link>
+              </button>
             </Nav.Link>
             {user ? (
               <Nav.Link>
-                <Link
-                  to="/login"
-                  onClick={() => signOut(auth)}
-                  className="text-decoration-none text-light fw-bold"
+                <button
+                  onClick={() => {
+                    navigate("/login");
+                    signOut(auth);
+                  }}
+                  className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
                 >
                   Sign Out
-                </Link>
+                </button>
               </Nav.Link>
             ) : (
               <>
                 <Nav.Link>
-                  <Link
-                    to="/login"
-                    className="text-decoration-none text-light fw-bold"
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
                   >
                     Login
-                  </Link>
+                  </button>
                 </Nav.Link>
                 <Nav.Link eventKey={2}>
-                  <Link
-                    to="/signup"
-                    className="text-decoration-none text-light fw-bold"
+                  <button
+                    onClick={() => navigate("/signup")}
+                    className="text-decoration-none text-light fw-bold fs-6 btn btn-link py-0 px-0"
                   >
                     Sign Up
-                  </Link>
+                  </button>
                 </Nav.Link>
               </>
             )}
