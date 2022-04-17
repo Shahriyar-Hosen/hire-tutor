@@ -1,5 +1,6 @@
 import React from "react";
 import Services from "../Services/Services";
+import ServingCategories from "../ServingCategories/ServingCategories";
 import "./Home.css";
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
           Service Tuition Types
         </h1>
         <Services></Services>
+        <ServingCategories></ServingCategories>
       </div>
     </div>
   );
