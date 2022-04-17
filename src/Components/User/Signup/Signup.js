@@ -4,7 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import signup1 from "../../../images/Login/Signup.jpg";
 import signup2 from "../../../images/Login/sign-up.jpg";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSendEmailVerification,
+} from "react-firebase-hooks/auth";
 import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -13,15 +16,31 @@ const Signup = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [sendEmailVerification, sending, verificationError] =
+    useSendEmailVerification(auth);
 
   if (loading) {
-   return <Loading />;
+    return <Loading />;
+  }
+
+  if (verificationError) {
+    console.log(verificationError.message);
+  }
+
+  if (sending) {
+    console.log("sending");
+    return <Loading />;
   }
 
   if (user) {
     console.log(user);
     navigate("/home");
   }
+
+  const emailVerification = async () => {
+    await sendEmailVerification();
+    console.log("Sent email");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,6 +51,7 @@ const Signup = () => {
 
     createUserWithEmailAndPassword(email, password);
     console.log(name, email, password);
+    emailVerification();
   };
   return (
     <div className="container mb-5 mt-5">
@@ -43,17 +63,17 @@ const Signup = () => {
           alt=""
         />
       </div>
-      <div class="card mb-3  border-0">
-        <div class="row g-0">
-          <div class="col-md-6">
+      <div className="card mb-3  border-0">
+        <div className="row g-0">
+          <div className="col-md-6">
             <img
               src={signup1}
-              class="img-fluid rounded-start d-md-block d-none"
+              className="img-fluid rounded-start d-md-block d-none"
               alt="..."
             />
           </div>
-          <div class="col-md-6">
-            <div class="card-body">
+          <div className="col-md-6">
+            <div className="card-body">
               <div className="w-100 mx-auto">
                 <h1 className="text-primary text-center mt-2">
                   Please Sign Up
@@ -64,6 +84,7 @@ const Signup = () => {
                     controlId="formBasicName"
                   >
                     <Form.Control
+                      required
                       type="text"
                       name="name"
                       className="py-4"
@@ -75,6 +96,7 @@ const Signup = () => {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
+                      required
                       type="email"
                       name="email"
                       className="py-4"
@@ -87,6 +109,7 @@ const Signup = () => {
                     controlId="formBasicPassword"
                   >
                     <Form.Control
+                      required
                       type="password"
                       name="password"
                       className="py-4"
