@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import signup1 from "../../../images/Login/Signup.jpg";
 import signup2 from "../../../images/Login/sign-up.jpg";
@@ -10,8 +10,18 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Signup = () => {
   const [agree, setAgree] = useState(false);
+  const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
+  if (loading) {
+    <Loading />;
+  }
+
+  if (user) {
+    console.log(user);
+    navigate('/home')
+  }
 
   const handleSubmit = (event) => {
     const name = event.target.name.value;
@@ -82,8 +92,8 @@ const Signup = () => {
                       placeholder="Password"
                     />
                   </Form.Group>
-                  {/* <p>{error?.message}</p>
-        <p>{resetError?.message}</p> */}
+                  <p>{error?.message}</p>
+                  {/* <p>{resetError?.message}</p> */}
                   <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check
                       onClick={() => setAgree(!agree)}
