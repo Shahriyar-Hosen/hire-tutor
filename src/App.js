@@ -4,6 +4,7 @@ import About from "./Components/About/About";
 import Blogs from "./Components/Blogs/Blogs";
 import Checkout from "./Components/Checkout/Checkout";
 import Home from "./Components/Home/Home";
+import NotFound from "./Components/NotFound/NotFound";
 import Footer from "./Components/Shared/Footer/Footer";
 import Header from "./Components/Shared/Header/Header";
 import Login from "./Components/User/Login/Login";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/checkout" element={<Checkout />}></Route>
+        <Route path="*" element={<NotFound />}></Route>
       </Routes>
       <Footer></Footer>
     </div>

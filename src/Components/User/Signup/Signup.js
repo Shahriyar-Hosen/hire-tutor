@@ -6,17 +6,17 @@ import signup1 from "../../../images/Login/Signup.jpg";
 import signup2 from "../../../images/Login/sign-up.jpg";
 
 const Signup = () => {
-    const [agree, setAgree] = useState(false);
+  const [agree, setAgree] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
   };
   return (
-    <div className="container mb-5">
+    <div className="container mb-5 mt-5">
       <div className="w-100">
         <img
           style={{ height: "300px" }}
           src={signup2}
-          className="img-fluid d-block mx-auto m-5"
+          className="img-fluid d-block d-md-none mx-auto m-5"
           alt=""
         />
       </div>
@@ -37,14 +37,26 @@ const Signup = () => {
                 </h1>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3 mt-3" controlId="formBasicName">
-                    <Form.Control type="text" placeholder="Enter your name" />
+                    <Form.Control
+                      type="text"
+                      className="py-4"
+                      placeholder="Enter your name"
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control
+                      type="email"
+                      className="py-4"
+                      placeholder="Enter email"
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                      type="password"
+                      className="py-4"
+                      placeholder="Password"
+                    />
                   </Form.Group>
                   {/* <p>{error?.message}</p>
         <p>{resetError?.message}</p> */}
@@ -57,17 +69,17 @@ const Signup = () => {
                     />
                   </Form.Group>
                   <Button
-                    className="w-100 rounded-pill d-block mx-auto mb-4"
+                    className="w-100 rounded-pill d-block mx-auto fs-4 mb-4"
                     variant="primary"
                     type="submit"
                   >
-                    Login
+                    Sign Up
                   </Button>
                 </Form>
                 <p className=" text-center mt-2">
-                Already have an account?
+                  Already have an account?
                   <Link
-                    to="/register"
+                    to="/login"
                     //   onClick={handleNavigate}
                     className="text-primary text-decoration-none px-2"
                   >

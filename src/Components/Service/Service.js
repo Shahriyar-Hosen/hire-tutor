@@ -25,7 +25,7 @@ const Service = ({ service }) => {
                     to="/checkout"
                     className="btn btn-primary py-1 px-4 text-decoration-none "
                   >
-                    Hire A Tutor{" "}
+                    Hire {" "}
                   </Link>
                 </div>
               </div>

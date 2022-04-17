@@ -36,11 +36,19 @@ const Login = () => {
                 <h1 className="text-primary text-center mt-2">Please Login</h1>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control
+                      type="email"
+                      className="py-4"
+                      placeholder="Enter email"
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control
+                      type="password"
+                      className="py-4"
+                      placeholder="Password"
+                    />
                   </Form.Group>
                   {/* <p>{error?.message}</p>
         <p>{resetError?.message}</p> */}
@@ -49,17 +57,17 @@ const Login = () => {
                     controlId="formBasicCheckbox"
                   ></Form.Group>
                   <Button
-                    className="w-100 rounded-pill d-block mx-auto mb-4"
+                    className="w-100 rounded-pill d-block mx-auto fs-5 mb-4"
                     variant="primary"
                     type="submit"
                   >
-                    Login
+                      Login
                   </Button>
                 </Form>
                 <p className=" text-center mt-2">
                   New User?
                   <Link
-                    to="/register"
+                    to="/signup"
                     //   onClick={handleNavigate}
                     className="text-primary text-decoration-none px-2"
                   >
