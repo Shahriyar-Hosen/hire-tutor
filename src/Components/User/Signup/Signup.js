@@ -20,17 +20,18 @@ const Signup = () => {
 
   if (user) {
     console.log(user);
-    navigate('/home')
+    navigate("/home");
   }
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+
     const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
     createUserWithEmailAndPassword(email, password);
     console.log(name, email, password);
-    event.preventDefault();
   };
   return (
     <div className="container mb-5 mt-5">
@@ -93,7 +94,6 @@ const Signup = () => {
                     />
                   </Form.Group>
                   <p>{error?.message}</p>
-                  {/* <p>{resetError?.message}</p> */}
                   <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check
                       onClick={() => setAgree(!agree)}
@@ -103,7 +103,7 @@ const Signup = () => {
                     />
                   </Form.Group>
                   <Button
-                  disabled={!agree}
+                    disabled={!agree}
                     className="w-100 rounded-pill d-block mx-auto fs-4 mb-4"
                     variant="primary"
                     type="submit"

@@ -1,22 +1,44 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import login from "../../../images/Login/Login.jpg";
-import user from "../../../images/Login/user.jpg";
+import userImg from "../../../images/Login/user.jpg";
+import auth from "../../../Firebase.init/Firebase.init";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+    
+  if (loading) {
+    <Loading />;
+  }
+
+  
+  if (user) {
+    console.log(user);
+    navigate("/home");
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // signInWithEmailAndPassword(email, password);
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    signInWithEmailAndPassword(email, password);
   };
   return (
     <div className="container mb-5">
       <div className="w-100">
         <img
           style={{ height: "300px" }}
-          src={user}
+          src={userImg}
           className="img-fluid d-block mx-auto"
           alt=""
         />
@@ -38,6 +60,7 @@ const Login = () => {
                   <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
                     <Form.Control
                       type="email"
+                      name="email"
                       className="py-4"
                       placeholder="Enter email"
                     />
@@ -46,12 +69,13 @@ const Login = () => {
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control
                       type="password"
+                      name="password"
                       className="py-4"
                       placeholder="Password"
                     />
                   </Form.Group>
-                  {/* <p>{error?.message}</p>
-        <p>{resetError?.message}</p> */}
+                  <p className="text-danger">{error?.message}</p>
+                  {/* <p>{resetError?.message}</p> */}
                   <Form.Group
                     className="mb-3"
                     controlId="formBasicCheckbox"
@@ -61,14 +85,13 @@ const Login = () => {
                     variant="primary"
                     type="submit"
                   >
-                      Login
+                    Login
                   </Button>
                 </Form>
                 <p className=" text-center mt-2">
                   New User?
                   <Link
                     to="/signup"
-                    //   onClick={handleNavigate}
                     className="text-primary text-decoration-none px-2"
                   >
                     Please Register
