@@ -1,6 +1,22 @@
 import React from "react";
+import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import auth from "../../../Firebase.init/Firebase.init";
+import Loading from "../../Shared/Loading/Loading";
 
 const SocialLogin = () => {
+  const navigate = useNavigate();
+
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
+
+  if (googleLoading) {
+   return <Loading />;
+  }
+
+  if (googleUser) {
+    navigate("/home");
+  }
   return (
     <div>
       <div className="d-flex align-items-center">
@@ -16,7 +32,7 @@ const SocialLogin = () => {
       </div>
 
       <button
-        onClick={() => "signInWithGoogle()"}
+        onClick={() => signInWithGoogle()}
         className="btn btn-info text-white mt-1 w-100 rounded-pill"
       >
         <img
@@ -28,11 +44,11 @@ const SocialLogin = () => {
         CONTINUE WITH GOOGLE
       </button>
 
-      {/* {googlError ? (
-        <p className="text-danger text-center">Error: {googlError.message}</p>
+      {googleError ? (
+        <p className="text-danger text-center">Error: {googleError.message}</p>
       ) : (
         ""
-      )} */}
+      )}
 
       <button
         onClick={() => "signInWithFacebook()"}

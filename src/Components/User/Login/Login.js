@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import login from "../../../images/Login/Login.jpg";
 import userImg from "../../../images/Login/user.jpg";
@@ -10,19 +10,22 @@ import Loading from "../../Shared/Loading/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
     
   if (loading) {
-    <Loading />;
+   return <Loading />;
   }
 
   
   if (user) {
     console.log(user);
-    navigate("/home");
+    navigate(from, { replace: true });
   }
 
   const handleSubmit = (event) => {

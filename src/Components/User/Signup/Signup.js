@@ -15,7 +15,7 @@ const Signup = () => {
     useCreateUserWithEmailAndPassword(auth);
 
   if (loading) {
-    <Loading />;
+   return <Loading />;
   }
 
   if (user) {

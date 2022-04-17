@@ -7,7 +7,7 @@ import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../Loading/Loading";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
 
   if (loading) {
     <Loading />;
@@ -18,33 +18,47 @@ const Header = () => {
       <Container>
         <Navbar.Brand>
           <Link
-            to="/home"
-            className="text-decoration-none text-dark fs-3 fw-bold"
+            to="/"
+            className="text-decoration-none text-warning fs-3 fw-bold pe-5"
           >
-            Hire Tutor
+            HIRE TUTOR
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
-              <Link to="/blogs" className="text-decoration-none text-dark">
-                Blogs
+              <Link
+                to="/home"
+                className="text-decoration-none text-light fw-bold"
+              >
+                Home
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/about" className="text-decoration-none text-dark">
-                About
+              <Link
+                to="/blogs"
+                className="text-decoration-none text-light fw-bold"
+              >
+                Blogs
               </Link>
             </Nav.Link>
           </Nav>
           <Nav>
+            <Nav.Link>
+              <Link
+                to="/about"
+                className="text-decoration-none text-light fw-bold"
+              >
+                About
+              </Link>
+            </Nav.Link>
             {user ? (
               <Nav.Link>
                 <Link
                   to="/login"
                   onClick={() => signOut(auth)}
-                  className="text-decoration-none text-dark"
+                  className="text-decoration-none text-light fw-bold"
                 >
                   Sign Out
                 </Link>
@@ -52,12 +66,18 @@ const Header = () => {
             ) : (
               <>
                 <Nav.Link>
-                  <Link to="/login" className="text-decoration-none text-dark">
+                  <Link
+                    to="/login"
+                    className="text-decoration-none text-light fw-bold"
+                  >
                     Login
                   </Link>
                 </Nav.Link>
                 <Nav.Link eventKey={2}>
-                  <Link to="/signup" className="text-decoration-none text-dark">
+                  <Link
+                    to="/signup"
+                    className="text-decoration-none text-light fw-bold"
+                  >
                     Sign Up
                   </Link>
                 </Nav.Link>
