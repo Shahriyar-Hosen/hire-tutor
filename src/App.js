@@ -9,7 +9,7 @@ import Footer from "./Components/Shared/Footer/Footer";
 import Header from "./Components/Shared/Header/Header";
 import Login from "./Components/User/Login/Login";
 import RequireAuth from "./Components/User/RequireAuth/RequireAuth";
-import Signup from "./Components/User/Signup/Signup";
+import SignUp from "./Components/User/Signup/SignUp";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/blogs" element={<Blogs />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
         <Route
           path="/checkout"
           element={

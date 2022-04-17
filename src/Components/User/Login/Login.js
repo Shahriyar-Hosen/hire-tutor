@@ -39,6 +39,7 @@ const Login = () => {
   const resetPassword = async () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
+    console.log("Sent email");
   };
 
   const handleSubmit = (event) => {

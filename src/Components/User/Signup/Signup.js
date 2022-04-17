@@ -4,10 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import signup1 from "../../../images/Login/Signup.jpg";
 import signup2 from "../../../images/Login/sign-up.jpg";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSendEmailVerification,
-} from "react-firebase-hooks/auth";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 
@@ -15,32 +12,17 @@ const Signup = () => {
   const [agree, setAgree] = useState(false);
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
-  const [sendEmailVerification, sending, verificationError] =
-    useSendEmailVerification(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    
 
   if (loading) {
-    return <Loading />;
-  }
-
-  if (verificationError) {
-    console.log(verificationError.message);
-  }
-
-  if (sending) {
-    console.log("sending");
-    return <Loading />;
+   return <Loading />;
   }
 
   if (user) {
     console.log(user);
     navigate("/home");
   }
-
-  const emailVerification = async () => {
-    await sendEmailVerification();
-    console.log("Sent email");
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -51,7 +33,6 @@ const Signup = () => {
 
     createUserWithEmailAndPassword(email, password);
     console.log(name, email, password);
-    emailVerification();
   };
   return (
     <div className="container mb-5 mt-5">
@@ -84,7 +65,7 @@ const Signup = () => {
                     controlId="formBasicName"
                   >
                     <Form.Control
-                      required
+                    required
                       type="text"
                       name="name"
                       className="py-4"
@@ -96,7 +77,7 @@ const Signup = () => {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
-                      required
+                    required
                       type="email"
                       name="email"
                       className="py-4"
@@ -109,7 +90,7 @@ const Signup = () => {
                     controlId="formBasicPassword"
                   >
                     <Form.Control
-                      required
+                    required
                       type="password"
                       name="password"
                       className="py-4"
