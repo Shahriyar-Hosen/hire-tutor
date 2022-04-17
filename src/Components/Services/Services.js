@@ -10,10 +10,15 @@ const Services = () => {
   }, []);
 
   return (
-    <div className="row row-cols-1 row-cols-md-2 g-2 container mx-auto my-5">
-      {services.map((service) => (
-        <Service key={service.id} service={service}></Service>
-      ))}
+    <div>
+      <h1 className="text-center fs-1 fw-bold m-t-b text-info">
+        Service Tuition Types
+      </h1>
+      <div className="row row-cols-1 row-cols-md-2 g-2 container mx-auto my-5">
+        {services.map((service) => (
+          <Service key={service.id} service={service}></Service>
+        ))}
+      </div>
     </div>
   );
 };

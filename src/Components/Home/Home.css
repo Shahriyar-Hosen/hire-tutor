@@ -22,6 +22,11 @@
   text-align: center;
 }
 
+.m-t-b{
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+
 @media only screen and (max-width: 688px) {
   .banner-container {
     height: 300px;
@@ -35,4 +40,10 @@
     font-size: 30px;
     font-weight: bold;
   }
+
+  .m-t-b{
+    margin-top: 100px;
+    margin-bottom: 30px;
+  }
+
 }
