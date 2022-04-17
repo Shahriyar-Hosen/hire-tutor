@@ -99,10 +99,11 @@ const Signup = () => {
                       onClick={() => setAgree(!agree)}
                       className={agree ? "text-success" : ""}
                       type="checkbox"
-                      label="Accept Genius Car Terms and Condition"
+                      label="Accept All Terms and Condition"
                     />
                   </Form.Group>
                   <Button
+                  disabled={!agree}
                     className="w-100 rounded-pill d-block mx-auto fs-4 mb-4"
                     variant="primary"
                     type="submit"
