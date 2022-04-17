@@ -22,9 +22,9 @@
   text-align: center;
 }
 
-.m-t-b{
-  margin-top: 150px;
-  margin-bottom: 50px;
+.m-t-b {
+  margin-top: 120px;
+  margin-bottom: 100px;
 }
 
 @media only screen and (max-width: 688px) {
@@ -41,9 +41,12 @@
     font-weight: bold;
   }
 
-  .m-t-b{
-    margin-top: 100px;
-    margin-bottom: 30px;
+  .banner-title p{
+    display: none;
   }
 
+  .m-t-b {
+    margin-top: 100px;
+    margin-bottom: 80px;
+  }
 }
