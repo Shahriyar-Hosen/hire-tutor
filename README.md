@@ -1,6 +1,6 @@
 # HIRE TUTOR
 
-## This Project Live Website [Link](https://hire-tutor-f0b91.web.app/).
+## This Project Live Website [Link](https://hire-tutor-f0b91.web.app/)
 
 
 ## Project Details
