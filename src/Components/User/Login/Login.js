@@ -10,6 +10,7 @@ import {
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import Loading from "../../Shared/Loading/Loading";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -33,13 +34,13 @@ const Login = () => {
   }
 
   if (sending) {
-    return <p>Sending...</p>;
+    return <Loading />;
   }
 
   const resetPassword = async () => {
     const email = emailRef.current.value;
     await sendPasswordResetEmail(email);
-    console.log("Sent email");
+    toast("Sent email");
   };
 
   const handleSubmit = (event) => {
@@ -77,7 +78,7 @@ const Login = () => {
                   <Form.Group className="mb-3 mt-3" controlId="formBasicEmail">
                     <Form.Control
                       required
-                      ref={emailRef} 
+                      ref={emailRef}
                       type="email"
                       name="email"
                       className="py-4"
@@ -128,6 +129,8 @@ const Login = () => {
                   </Link>
                 </p>
                 <SocialLogin></SocialLogin>
+
+                <ToastContainer />
               </div>
             </div>
           </div>
