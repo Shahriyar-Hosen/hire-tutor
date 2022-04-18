@@ -39,5 +39,5 @@ Only those who are logged in to the page can come and fill out the form to book 
 ### React Bootstrap `Version: 5.1.3`
 ### Firebase `Version: 9.6.11`
 ### MDB React `Version: 5.2.0`
-### framer motion `Version: 6.3.0`
-### Freact Toastify `Version: 8.2.0`
+### Framer Motion `Version: 6.3.0`
+### React Toastify `Version: 8.2.0`

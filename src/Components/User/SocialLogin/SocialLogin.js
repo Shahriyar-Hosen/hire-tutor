@@ -31,6 +31,7 @@ const SocialLogin = () => {
   if (githubUser) {
     console.log(githubUser);
   }
+  
   if (googleUser || fbUser || githubUser) {
     navigate("/home");
   }

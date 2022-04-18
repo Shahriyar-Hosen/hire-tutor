@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
 import formImg from '../../images/form.jpg'
+import "react-toastify/dist/ReactToastify.css";
 
 const Checkout = () => {
   const handleSubmit = (event) => {
@@ -12,6 +14,7 @@ const Checkout = () => {
     const phone = event.target.phone.value;
     const address = event.target.address.value;
 
+    toast("Thank you for Booking")
     console.log(name, email, password, phone, address);
   };
   return (
@@ -101,6 +104,7 @@ const Checkout = () => {
                     submit
                   </Button>
                 </Form>
+                <ToastContainer />
               </div>
             </div>
           </div>
