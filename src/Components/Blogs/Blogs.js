@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import "./Blogs.css";
 import AuthenticationVsAuthorization from "../../images/Authentication-vs-Authorization.png";
 import Firebase from '../../images/firebase.png'
 import Firebase1 from '../../images/firebase1.png'
