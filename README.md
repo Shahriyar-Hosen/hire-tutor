@@ -14,12 +14,9 @@ This is a tutor hire website. This website has a navigation menu from which you 
 
 The following three questions are answered on this page:
 
-#### 1
-**Difference between authorization and authentication**
-#### 2
-**Why are you using firebase? What other options do you have to implement authentication?**
-#### 3
-**What other services does firebase provide other than authentication?**
+#### 1: **Difference between authorization and authentication**
+#### 2: **Why are you using firebase? What other options do you have to implement authentication?**
+#### 3: **What other services does firebase provide other than authentication?**
 
 ### About Page
 
@@ -29,32 +26,17 @@ The About page gives me a brief description of my goals for the next five months
 
 There is a login and sign in page for authentication and there is a social login section
 
-## Learn More
+### Checkout Page 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Only those who are logged in to the page can come and fill out the form to book the service and submit
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Technology used for this project
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### React Router Dom `Version: 6.3.0`
+### Bootstrap `Version: 5.1.3`
+### React Bootstrap `Version: 5.1.3`
+### Firebase `Version: 9.6.11`
+### MDB React `Version: 5.2.0`
+### framer motion `Version: 6.3.0`
