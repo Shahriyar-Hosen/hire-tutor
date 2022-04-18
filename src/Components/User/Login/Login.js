@@ -11,6 +11,7 @@ import {
 } from "react-firebase-hooks/auth";
 import Loading from "../../Shared/Loading/Loading";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -24,17 +25,13 @@ const Login = () => {
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
 
-  if (loading) {
+  if (loading || sending) {
     return <Loading />;
   }
 
   if (user) {
     console.log(user);
     navigate(from, { replace: true });
-  }
-
-  if (sending) {
-    return <Loading />;
   }
 
   const resetPassword = async () => {
@@ -129,7 +126,6 @@ const Login = () => {
                   </Link>
                 </p>
                 <SocialLogin></SocialLogin>
-
                 <ToastContainer />
               </div>
             </div>
