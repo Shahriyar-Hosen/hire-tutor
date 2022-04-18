@@ -1,43 +1,33 @@
-# Getting Started with Create React App
+# HIRE TUTOR
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This Project Live Website [Link](https://hire-tutor-f0b91.web.app/).
 
-## Available Scripts
 
-In the project directory, you can run:
+## Project Details
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Home Page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This is a tutor hire website. This website has a navigation menu from which you can go to different pages. Next to it is a banner and just below it is a description of what kind of service this tutor offers, price and button to take the service. In the next section, there is For That Reason Hire Me and below all, there is a footer where different means of communication are given.
 
-### `npm test`
+### Blogs Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The following three questions are answered on this page:
 
-### `npm run build`
+#### 1
+**Difference between authorization and authentication**
+#### 2
+**Why are you using firebase? What other options do you have to implement authentication?**
+#### 3
+**What other services does firebase provide other than authentication?**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### About Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The About page gives me a brief description of my goals for the next five months and what I need to do to meet them, along with an image of me.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Authentication 
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+There is a login and sign in page for authentication and there is a social login section
 
 ## Learn More
 
