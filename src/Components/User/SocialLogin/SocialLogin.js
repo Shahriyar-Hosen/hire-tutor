@@ -1,5 +1,9 @@
 import React from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithFacebook,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../../Shared/Loading/Loading";
@@ -9,12 +13,25 @@ const SocialLogin = () => {
 
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  const [signInWithFacebook, fbUser, fbLoading, fbError] =
+    useSignInWithFacebook(auth);
+  const [signInWithGithub, githubUser, githubLoading, githubError] =
+    useSignInWithGithub(auth);
 
-  if (googleLoading) {
-   return <Loading />;
+  if (googleLoading || fbLoading || githubLoading) {
+    return <Loading></Loading>;
   }
 
   if (googleUser) {
+    console.log(googleUser);
+  }
+  if (fbUser) {
+    console.log(fbUser);
+  }
+  if (githubUser) {
+    console.log(githubUser);
+  }
+  if (googleUser || fbUser || githubUser) {
     navigate("/home");
   }
   return (
@@ -51,7 +68,7 @@ const SocialLogin = () => {
       )}
 
       <button
-        onClick={() => "signInWithFacebook()"}
+        onClick={() => signInWithFacebook()}
         className="btn btn-primary mt-2 w-100 rounded-pill"
       >
         <img
@@ -63,14 +80,14 @@ const SocialLogin = () => {
         CONTINUE WITH FACEBOOK
       </button>
 
-      {/* {fbError ? (
+      {fbError ? (
         <p className="text-danger text-center">Error: {fbError.message}</p>
       ) : (
         ""
-      )} */}
+      )}
 
       <button
-        onClick={() => "signInWithGithub()"}
+        onClick={() => signInWithGithub()}
         className="btn btn-dark mt-2 w-100 rounded-pill"
       >
         <img
@@ -82,11 +99,11 @@ const SocialLogin = () => {
         CONTINUE WITH GITHUB
       </button>
 
-      {/* {githubError ? (
+      {githubError ? (
         <p className="text-danger text-center">Error: {githubError.message}</p>
       ) : (
         ""
-      )} */}
+      )}
     </div>
   );
 };
