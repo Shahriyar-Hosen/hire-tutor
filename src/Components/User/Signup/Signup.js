@@ -13,10 +13,9 @@ const Signup = () => {
   const navigate = useNavigate();
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    
 
   if (loading) {
-   return <Loading />;
+    return <Loading />;
   }
 
   if (user) {
@@ -65,7 +64,7 @@ const Signup = () => {
                     controlId="formBasicName"
                   >
                     <Form.Control
-                    required
+                      required
                       type="text"
                       name="name"
                       className="py-4"
@@ -77,7 +76,7 @@ const Signup = () => {
                     controlId="formBasicEmail"
                   >
                     <Form.Control
-                    required
+                      required
                       type="email"
                       name="email"
                       className="py-4"
@@ -90,7 +89,7 @@ const Signup = () => {
                     controlId="formBasicPassword"
                   >
                     <Form.Control
-                    required
+                      required
                       type="password"
                       name="password"
                       className="py-4"

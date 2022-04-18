@@ -2,7 +2,7 @@ import { signOut } from "firebase/auth";
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import auth from "../../../Firebase.init/Firebase.init";
 import Loading from "../Loading/Loading";
 
